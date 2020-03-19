@@ -1,14 +1,29 @@
-<nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-    
-    <ul class="navbar-nav">
-       
-      <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a></li>
-      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li> -->
+<header>
+    <div class="container">
+        <img src="assets/wfh-logo-white.png" alt="logo-white" class="logo">
 
-      <li><a routerLink="/login" class="nav-link">Login</a></li>
-      <li><a routerLink="/logout" class="nav-link">LogOut</a></li>
+        <nav>
     
-    </ul>
-</nav>
+            <ul>
+               
+              <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a></li>
+              <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a></li>
+              <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+              <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li> -->
+        
+                <li>
+                    <a routerLink="/login" class="nav-link">Login</a>
+                </li>
+                <li>
+                    <a routerLink="/register" class="nav-link">Register</a>
+                </li>
+                <li>
+                    <a routerLink="/logout" class="nav-link">LogOut</a>
+                </li>
+            
+            </ul>
+        </nav>
+
+    </div>
+</header>
+

@@ -1,5 +1,5 @@
-export class Checklist {
-    checkId : number;
-    checkTitel : string;
-    checkDecription : string;
+export class Checklist{
+    checkId:number;
+    checkTitle:string;
+    checkDescription:string;
 }

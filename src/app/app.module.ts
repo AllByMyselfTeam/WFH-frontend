@@ -8,6 +8,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { ChecklistComponent } from './components/checklist/checklist.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
+import { TaskComponent } from './components/task/task.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +22,17 @@ import { LoginComponent } from './components/login/login.component';
     RegisterComponent,
     ChecklistComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
