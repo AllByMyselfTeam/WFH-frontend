@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   
 
   register() {
-    this.userService.register(this.user);
+    this.userService.register(this.user).subscribe();
     this.user = new User();
   }
   // @Input() error: string | boolean;
