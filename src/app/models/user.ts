@@ -5,8 +5,8 @@ export class User{
     userId:number;
     username:string;
     password:string;
-    fName:string;
-    lName:string;
+    fname:string;
+    lname:string;
     email:string;
     phone:string;
     title:string; 

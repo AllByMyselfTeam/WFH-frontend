@@ -17,12 +17,13 @@ export class UserService {
 
    public getUserByUsername(username:string){}
 
-   public login(user:User):Observable<User>{
-     return this.http.post<User>(this.url+"/login", user);
+   public login(user:User){
+     return this.http.post<User>(this.url+"login", user);
    }
 
    public register(user:User):Observable<User>{
-     return this.http.post<User>(this.url+"/register", user);
+     console.log(user);
+     return this.http.post<User>(this.url+"register", user);
    }
 
   // public getSessionId():Observable<Sesh>{

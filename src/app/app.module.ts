@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
 @NgModule({
@@ -30,11 +32,15 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule 
   ],
-  providers: [],
+  providers: [
+
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
