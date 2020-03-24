@@ -17,12 +17,11 @@ export class UserService {
 
    public getUserByUsername(username:string){}
 
-   public login(user:User):Observable<User>{
-     console.log(this.http.post<User>(this.url+"login", user));
+   public getUser(user:User):Observable<User>{
      return this.http.post<User>(this.url+"login", user);
    }
 
-   public register(user:User):Observable<User>{
+   public addUser(user:User):Observable<User>{
      return this.http.post<User>(this.url+"register", user);
    }
 

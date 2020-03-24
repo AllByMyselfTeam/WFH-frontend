@@ -15,7 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserpageComponent } from './components/userpage/userpage.component'; 
+import { UserpageComponent } from './components/userpage/userpage.component';
+import { LogoutComponent } from './components/logout/logout.component'; 
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UserpageComponent } from './components/userpage/userpage.component';
     LoginComponent,
     TaskComponent,
     UserpageComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,8 +2,6 @@
     <mat-card-title>Register</mat-card-title>
     <mat-card-content>
         <form>
-        <!-- <form [formGroup]="form" (ngSubmit)="submit()"> -->
-
             <p>
                 <mat-form-field>
                     <input type="text" matInput placeholder="Username" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}">
@@ -39,19 +37,6 @@
                     <input type="text" matInput placeholder="Phone Number" [(ngModel)]="user.phone" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
             </p>
-
-            <!-- <table class="example-full-width" cellspacing="0"><tr>
-                <td><mat-form-field class="example-full-width">
-                    <mat-label>First name</mat-label>
-                    <input matInput>
-                </mat-form-field></td>
-                <td><mat-form-field class="example-full-width">
-                    <mat-label>Long Last Name That Will Be Truncated</mat-label>
-                    <input matInput>
-                </mat-form-field></td>
-            </tr></table> -->
-        
-
 <!-- 
             <p *ngIf="error" class="error">
                 {{ error }}

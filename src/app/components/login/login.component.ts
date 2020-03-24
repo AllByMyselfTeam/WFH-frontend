@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user: User;
+  
   constructor(private userService: UserService, private router:Router) { 
     this.user = new User();
   }
@@ -20,9 +21,14 @@ export class LoginComponent implements OnInit {
 
     
   login() {
-    console.log("login component" + this.userService.login(this.user).subscribe());
+    this.userService.getUser(this.user).subscribe(
+      user => {
+        sessionStorage.setItem('username', user.username)
+        sessionStorage.setItem('fname', user.fname)
+        this.router.navigate(['./userpage'])
+      }
+    );
     this.user = new User();
-    this.router.navigate(['./userpage'])
   }
 
 

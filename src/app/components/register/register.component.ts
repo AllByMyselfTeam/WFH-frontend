@@ -17,10 +17,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
 
   register() {
-    this.userService.register(this.user).subscribe();
+    this.userService.addUser(this.user).subscribe();
     this.user = new User();
   }
   // @Input() error: string | boolean;
