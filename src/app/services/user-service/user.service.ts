@@ -25,6 +25,10 @@ export class UserService {
      return this.http.post<User>(this.url+"register", user);
    }
 
+   public getUserById(userId: number) {
+     return this.http.get<User>(this.url + "user/"+ userId);
+   }
+
   // public getSessionId():Observable<Sesh>{
   //   return this.http.get<Sesh>(this.url+"/login/sid")
   // }

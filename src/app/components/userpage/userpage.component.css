@@ -1,0 +1,62 @@
+section{
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-right: 2%;
+   
+}
+
+th,td{
+    padding-right: 10px;
+}
+.font {
+    font-weight: 400;
+}
+
+#spacing{
+    padding-top: 10em;
+}
+
+
+.a3Verbage{
+    height: 63px;
+    text-align: center;
+}
+
+#btnPad{
+    padding:  0.5em 5em;
+}
+
+.divider{
+    width:3em;
+    height:auto;
+    display:inline-block;
+}
+
+#loginModal{
+    background-color: #274368; ;
+    
+}
+#loginModalBord{
+    background-color: #323840; ;
+}
+
+.jumbotron{
+    background-color: rgba(133, 133, 147, .4);
+}
+
+#legalScript{
+    font-size: 10px;
+    
+}
+
+#modText{
+    color:#9ba8b6;
+}
+
+td{
+    padding:1.25em;
+}
+
+.card-header{
+    color:#9ba8b6;
+}

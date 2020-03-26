@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserpageComponent } from './components/userpage/userpage.component';
 import { LogoutComponent } from './components/logout/logout.component'; 
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    DragDropModule
+
   ],
   providers: [
 

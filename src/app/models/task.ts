@@ -1,3 +1,4 @@
+import { Checklist } from 'src/app/models/checklist';
 export class Task{
     taskId:number;
     taskDescription:string;
@@ -5,5 +6,5 @@ export class Task{
     status:number;
     beginDate:Date;
     completeDate:Date;
-    checkId:number;
+    cid: number
 }

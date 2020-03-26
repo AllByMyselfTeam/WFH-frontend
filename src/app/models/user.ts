@@ -11,5 +11,4 @@ export class User{
     phone:string;
     title:string; 
     teamIds: Team[];
-    checkIds: Checklist[];
 }

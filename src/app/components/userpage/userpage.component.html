@@ -1,1 +1,55 @@
-<p>userpage works!</p>
+<section>
+    <form [formGroup] = "checklistForm" (ngSubmit) = "onSubmit()">
+        <h1>Add Checklist </h1>
+        <div class="form-group">
+            <input type="text" placeholder="Check Title" formControlName="checkTitle" [(ngModel)] = "checklist.checkTitle">
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Description" formControlName="checkDescription" [(ngModel)] = "checklist.checkDescription">
+        </div>
+        <div>
+            <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Add</button>
+        </div>
+    </form>
+    
+    <table>
+        <div >
+            <tr >
+                <th *ngFor = "let check of checks">
+                    <mat-card>
+                        <h2>{{check.checkTitle}}</h2>
+                        <td class="font">{{check.checkDescription}}</td>
+                    </mat-card>
+                    
+                </th>
+                <th>
+                    <mat-card>
+                        <h2>Meeting</h2>
+                        <td></td>
+                    </mat-card>
+
+                </th>
+                <th>
+                    <mat-card>
+                        <h2>Notification</h2>
+                        <td></td>
+                    </mat-card>
+                </th>
+           </tr>
+           <tr >
+                <td *ngFor = "let check of checks">
+                    <mat-card><app-task [check] = "check"></app-task></mat-card>
+                </td>
+                <td>
+                    <mat-card>Notification</mat-card>
+                </td>
+                <td>
+                    <mat-card>Notification</mat-card>
+                </td>
+           </tr>
+        </div>
+</table>
+</section>
+
+
+
