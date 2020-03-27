@@ -10,5 +10,5 @@ export class User{
     email:string;
     phone:string;
     title:string; 
-    team:number;
+    team:Team[];
 }

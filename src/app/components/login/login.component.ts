@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       user => {
         sessionStorage.setItem('username', user.username)
         sessionStorage.setItem('fname', user.fname)
+        sessionStorage.setItem('id', user.userId.toString())
         this.router.navigate([`${"userpage"}/${user.userId}`])
       }
     );

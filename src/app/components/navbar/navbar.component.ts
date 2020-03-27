@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 })
 export class NavbarComponent implements OnInit {
   fname: string;
+  id: string;
 
   constructor(
     public authenticationService: AuthenticationService,
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if(this.authenticationService.isUserLoggedIn){
       this.fname = sessionStorage.getItem('fname');
+      this.id = sessionStorage.getItem('id');
     }
   }
 
