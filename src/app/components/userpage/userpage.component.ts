@@ -16,37 +16,42 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class UserpageComponent implements OnInit {
   userId:number;
   user: User;
+  teamId:number;
   checklist : Checklist;
   checklistForm:FormGroup;
   checks:Checklist[];
   show:boolean;
+  message:string = "";
+  afterCheck:Checklist;
   constructor(private activeRoute:ActivatedRoute,
               private checkService:ChecklistService,
               private userService:UserService,
               private formBuilder:FormBuilder,
               private router:Router) {
                 this.checklist = new Checklist();
-
+                this.user= new User();
               }
 
   ngOnInit(): void {
     
     this.userId = +this.activeRoute.snapshot.paramMap.get("id");
+    this.checklistForm = this.formBuilder.group({
+      checkTitle:[''],
+      checkDescription:['']
+    });
     this.userService.getUserById(this.userId).subscribe(userData =>{
       this.user = userData;
+      this.teamId = this.user.team;
       if(this.user.team != 0){
         this.show=true;
       }else{
         this.show=false;
       }
     });
-    this.checkService.getAllChecklist(1).subscribe(data=>{
+    this.checkService.getAllChecklist(this.userId).subscribe(data=>{
       this.checks = data;
     });
-    this.checklistForm = this.formBuilder.group({
-      checkTitle:[''],
-      checkDescription:['']
-    });
+    
   }
 
   onSubmit() {
@@ -56,14 +61,22 @@ export class UserpageComponent implements OnInit {
     }else{
       this.checklist.uid=this.userId;
       this.checkService.addChecklist(this.checklist).subscribe(res=>{
-        this.checklist = res;
+        
         this.ngOnInit();
+        this.message = "Complete add checklist";
         //this.router.navigate([`${"userpage"}/${this.userId}`]);
      });
     }
 }
+editChecklist(check:Checklist){
+  this.checkService.updateChecklist(check).subscribe(data=>{
+    this.afterCheck = data;
+    this.message = "Complete update "+ check.checkTitle;
+  });
+}
 removeCheck(checkId:number){
   this.checkService.deleteChecklist(checkId).subscribe(data=>{
+    this.message = "Complete remove checklist";
     this.ngOnInit();
   })
 }

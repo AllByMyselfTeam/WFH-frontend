@@ -1,0 +1,14 @@
+<mat-accordion>
+    <div *ngFor = "let notification of notifications">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                {{notification.notifyDescription}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>

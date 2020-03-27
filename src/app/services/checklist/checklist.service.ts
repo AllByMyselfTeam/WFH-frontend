@@ -17,10 +17,10 @@ export class ChecklistService {
   }
 
   public updateChecklist(checklist: Checklist):Observable<Checklist> {
-    return this.http.put<Checklist>(this.url+'checklist', checklist);
+    return this.http.put<Checklist>(this.url+'checklist/' + checklist.checkId, checklist);
   }
 
-  public getAllChecklist(userId:number){
+  public getAllChecklist(userId:number):Observable<Checklist[]>{
     return this.http.get<Checklist[]>(this.url+"checklist/user/"+userId);
   }
 

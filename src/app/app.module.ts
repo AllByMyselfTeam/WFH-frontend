@@ -19,6 +19,8 @@ import { UserpageComponent } from './components/userpage/userpage.component';
 import { LogoutComponent } from './components/logout/logout.component'; 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { NotificationComponent } from './components/notification/notification/notification.component';
+import { MeetingComponent } from './components/meeting/meeting/meeting.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     TaskComponent,
     UserpageComponent,
     LogoutComponent,
+    NotificationComponent,
+    MeetingComponent,
   ],
   imports: [
     BrowserModule,

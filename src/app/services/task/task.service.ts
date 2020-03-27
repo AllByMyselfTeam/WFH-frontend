@@ -17,7 +17,7 @@ export class TaskService {
    }
 
    public updateTask(task:Task):Observable<Task>{
-    return this.http.put<Task>(this.url+'task', task);
+    return this.http.put<Task>(this.url+'task/'+ task.taskId, task);
   }
 
   public getAllTask(cid:number):Observable<Task[]>{

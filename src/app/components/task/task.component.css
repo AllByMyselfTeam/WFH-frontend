@@ -1,3 +1,9 @@
 .example-action-button {
     margin-top: 16px;
-  }
+}
+.bold{
+  font-weight: 500;
+}
+.normal{
+  font-weight: 400;
+}

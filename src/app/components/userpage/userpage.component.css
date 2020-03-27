@@ -64,3 +64,11 @@ td{
 .example-action-button {
     margin-top: 16px;
   }
+
+  .btn{
+      padding: 0%;
+  }
+  .textColor{
+      color:green;
+  }
+  

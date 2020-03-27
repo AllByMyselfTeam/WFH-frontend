@@ -1,69 +1,87 @@
 <section>
-    <mat-card>
-        <form [formGroup] = "checklistForm" (ngSubmit) = "onSubmit()">
-            <h1>Add Checklist </h1>
-            <div class="form-group">
-                <mat-form-field>
-                    <mat-label>Checklist Title</mat-label>
-                    <input matInput  formControlName="checkTitle" [(ngModel)] = "checklist.checkTitle" >
-                </mat-form-field>
-            </div>
-            <div class="form-group">
-                <mat-form-field>
-                    <mat-label>Checklist Description</mat-label>
-                    <textarea matInput formControlName="checkDescription" [(ngModel)] = "checklist.checkDescription"></textarea>
-                </mat-form-field>
-            </div>
-            <div>
-                <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Add</button>
-            </div>
-        </form>
-    </mat-card>
- 
+    <div class="text-center textColor">
+        {{message}}
+    </div>
     
+    <h1>Welcome {{user.fname}} {{user.lname}}</h1>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Add Checklist 
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <form [formGroup] = "checklistForm" (ngSubmit) = "onSubmit()">
+                    <div class="form-group">
+                        <mat-form-field>
+                            <mat-label>Checklist Title</mat-label>
+                            <input matInput  formControlName="checkTitle" [(ngModel)] = "checklist.checkTitle" >
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field>
+                            <mat-label>Checklist Description</mat-label>
+                            <textarea matInput formControlName="checkDescription" [(ngModel)] = "checklist.checkDescription"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Add</button>
+                    </div>
+                </form>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <br>
+    <br>
     <table>
         <div >
-            <tr >
+            <tr>
+                <th  *ngIf="show">
+                    <mat-card>
+                        <div class="text-center">
+                            <h2>Meeting</h2>
+                        <app-meeting [team] = "teamId"></app-meeting>
+                        <br>
+                        <h2>Notification</h2>
+                        <app-notification [team] = "teamId"></app-notification>
+
+                        </div>
+                    
+                    </mat-card>
+
+                </th>
                 <th *ngFor = "let check of checks">
                     <mat-card>
-                        <h2>{{check.checkTitle}}</h2>
-                        <td class="font">{{check.checkDescription}}</td>
+
+                        <div class="text-center" >
+                            <h2>{{check.checkTitle}}</h2>
+                        </div>
+                        
+                        <td class="font">
+                            <textarea matInput  [(ngModel)] = "check.checkDescription"></textarea>
+                        </td>
+                        
                         <div class="text-right">
-                            <button  class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn (click)="removeCheck(check.checkId)">
+                            <button class="btn" rounded="true" mdbWavesEffect mdbBtn (click)="editChecklist(check)">
+                                <span class="material-icons">
+                                  edit
+                                  </span>
+                              </button>
+                            <button  class="btn" rounded="true" mdbWavesEffect mdbBtn (click)="removeCheck(check.checkId)">
                                 <span class="material-icons">
                                     delete
                                 </span>
                             </button>
                         </div>
-                    </mat-card>
-                    
-
-                </th>
-                <th  *ngIf="show">
-                    <mat-card>
-                        <h2>Meeting</h2>
-                        <td></td>
-                    </mat-card>
-
-                </th>
-                <th *ngIf="show">
-                    <mat-card>
-                        <h2>Notification</h2>
-                        <td></td>
+                        <br>
+                        <app-task [check] = "check"></app-task>
+                        <br>
                     </mat-card>
                 </th>
-           </tr>
-           <tr >
-                <td *ngFor = "let check of checks">
-                    <app-task [check] = "check"></app-task>
-                </td>
-                <td *ngIf="show">
-                    <mat-card>Notification</mat-card>
-                </td>
-                <td *ngIf="show">
-                    <mat-card>Notification</mat-card>
-                </td>
-           </tr>
+              
+            </tr>
+        
         </div>
 </table>
 </section>

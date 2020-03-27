@@ -1,38 +1,69 @@
 <mat-accordion>
     <div *ngFor = "let task of tasks">
-        <mat-expansion-panel>
+        <mat-expansion-panel *ngIf="task.status == 0">
             <mat-expansion-panel-header>
-                <mat-panel-title>
-                {{task.taskDescription}}
+                <mat-panel-title class="bold">
+                {{task.taskTitle}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-panel-description>
-                <div class="text-right">
-                    <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Edit</button>
-                </div>
-                <div class="text-right">
-                    <button class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn (click)="removeTask(task.taskId)">
-                        <span class="material-icons">
-                            delete
-                        </span>
-                    </button>
-                </div>
+                
+              <div class="text-left normal">
+                  <textarea matInput 
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="1"
+                            cdkAutosizeMaxRows="5" 
+                            [(ngModel)]= "task.taskDescription">
+                  </textarea>
+                  <br>
+                  <br>
+                  <button id="btnPad" class="btn" rounded="true" mdbWavesEffect mdbBtn (click)="editTask(task)">
+                    <span class="material-icons">
+                      edit
+                      </span>
+                  </button>
+                  <button  id="btnPad"  class="btn" rounded="true" mdbWavesEffect mdbBtn (click)="removeTask(task.taskId)">
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </button>
+                <button id="btnPad" class="btn" rounded="true" mdbWavesEffect mdbBtn (click)="finishTask(task)">
+                  <span class="material-icons">
+                    done
+                    </span>
+                </button>
+              </div>
+                
             </mat-panel-description>
         </mat-expansion-panel>
     </div>
 
     <mat-expansion-panel>
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="bold">
         <mat-panel-title>
-          Add Task
+          <span class="material-icons">
+            control_point
+          </span>
+         
         </mat-panel-title>
+        <mat-panel-description>
+          New Task
+       </mat-panel-description>
       </mat-expansion-panel-header>
       <form [formGroup] = "taskForm" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <mat-form-field>
-                <mat-label>Description</mat-label>
-                <input matInput formControlName="taskDescription" [(ngModel)]= "task.taskDescription">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="taskTitle" [(ngModel)]= "task.taskTitle">
             </mat-form-field>
+            
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="taskDescription" [(ngModel)]= "task.taskDescription"></textarea>
+          </mat-form-field>
           </div>
         
         <div>

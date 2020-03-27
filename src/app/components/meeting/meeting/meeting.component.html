@@ -1,0 +1,18 @@
+<mat-accordion>
+    <div *ngFor = "let meeting of meetings">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                {{meeting.meetDescription}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+               <div >
+                   <a >{{meeting.meetLink}}</a>
+               </div>
+                
+               
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>
