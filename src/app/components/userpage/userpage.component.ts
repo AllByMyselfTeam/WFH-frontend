@@ -19,6 +19,7 @@ export class UserpageComponent implements OnInit {
   checklist : Checklist;
   checklistForm:FormGroup;
   checks:Checklist[];
+  show:boolean;
   constructor(private activeRoute:ActivatedRoute,
               private checkService:ChecklistService,
               private userService:UserService,
@@ -33,6 +34,11 @@ export class UserpageComponent implements OnInit {
     this.userId = +this.activeRoute.snapshot.paramMap.get("id");
     this.userService.getUserById(this.userId).subscribe(userData =>{
       this.user = userData;
+      if(this.user.team != 0){
+        this.show=true;
+      }else{
+        this.show=false;
+      }
     });
     this.checkService.getAllChecklist(1).subscribe(data=>{
       this.checks = data;
@@ -51,9 +57,15 @@ export class UserpageComponent implements OnInit {
       this.checklist.uid=this.userId;
       this.checkService.addChecklist(this.checklist).subscribe(res=>{
         this.checklist = res;
-        this.router.navigate([`${"userpage"}/${this.userId}`]);
+        this.ngOnInit();
+        //this.router.navigate([`${"userpage"}/${this.userId}`]);
      });
     }
+}
+removeCheck(checkId:number){
+  this.checkService.deleteChecklist(checkId).subscribe(data=>{
+    this.ngOnInit();
+  })
 }
   
 }

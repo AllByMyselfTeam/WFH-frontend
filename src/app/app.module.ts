@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserpageComponent } from './components/userpage/userpage.component';
 import { LogoutComponent } from './components/logout/logout.component'; 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatInputModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    MatExpansionModule
+  
 
   ],
   providers: [

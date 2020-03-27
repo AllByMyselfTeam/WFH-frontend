@@ -20,8 +20,13 @@ export class TaskService {
     return this.http.put<Task>(this.url+'task', task);
   }
 
-  public getAllTask(cid:number){
-    return this.http.get<Task[]>(this.url+"task/check/"+cid);
+  public getAllTask(cid:number):Observable<Task[]>{
+    return this.http.get<Task[]>(this.url+'task/check/'+cid);
+  }
+
+  public deleteTask(taskId:number): Observable<any>{
+
+    return this.http.delete(this.url+"/task/"+ taskId);
   }
   
 }

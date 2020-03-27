@@ -21,9 +21,13 @@ export class ChecklistService {
   }
 
   public getAllChecklist(userId:number){
-    console.log(this.url+"checklist/user/"+userId);
     return this.http.get<Checklist[]>(this.url+"checklist/user/"+userId);
   }
+
+  public deleteChecklist(checkId:number){
+    return this.http.delete(this.url+"/checklist/"+ checkId);
+  }
+
 
   // public getChecklistById
 
