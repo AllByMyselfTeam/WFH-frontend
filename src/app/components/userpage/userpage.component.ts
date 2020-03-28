@@ -16,7 +16,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class UserpageComponent implements OnInit {
   userId:number;
   user: User;
-  teamId:number;
   checklist : Checklist;
   checklistForm:FormGroup;
   checks:Checklist[];
@@ -41,12 +40,13 @@ export class UserpageComponent implements OnInit {
     });
     this.userService.getUserById(this.userId).subscribe(userData =>{
       this.user = userData;
-      this.teamId = this.user.team;
-      if(this.user.team != 0){
+      if(this.user.teams.length != 0){
         this.show=true;
       }else{
         this.show=false;
       }
+      
+      
     });
     this.checkService.getAllChecklist(this.userId).subscribe(data=>{
       this.checks = data;
