@@ -15,10 +15,9 @@
                     <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
             </p>
-<!-- 
-            <p *ngIf="error" class="error">
-                {{ error }}
-            </p> -->
+            
+            <div *ngIf="errorMessage != null || errorMessage != undefined"> <p style="color:red;">{{errorMessage}}</p> 
+            </div>
 
             <div class="button">
                 <button type="submit" (click)="login()" mat-button>Login</button>

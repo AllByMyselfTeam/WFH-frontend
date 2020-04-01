@@ -30,17 +30,21 @@
                 <mat-form-field>
                     <input type="text" matInput placeholder="Email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
+                <small style="color:red;" *ngIf="user.email && !validationService.validateEmail(user.email)">Invalid Email</small>
             </p>
 
             <p>
                 <mat-form-field>
                     <input type="text" matInput placeholder="Phone Number" [(ngModel)]="user.phone" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
+                <small style="color:red;" *ngIf="user.phone && !validationService.validatePhone(user.phone)">Invalid Phone Number</small>
             </p>
-<!-- 
-            <p *ngIf="error" class="error">
-                {{ error }}
-            </p> -->
+
+            <div *ngIf="errorMessage != null || errorMessage != undefined"> <p style="color:red;">{{errorMessage}}</p> 
+            </div>
+
+            <div *ngIf="successMessage != null || successMessage != undefined"> <p style="color:green;">{{successMessage}}</p> 
+            </div>
 
             <div class="button">
                 <button type="submit" (click)="register()" mat-button>Register</button>
