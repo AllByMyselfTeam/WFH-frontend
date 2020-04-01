@@ -16,4 +16,8 @@ export class NotificationService {
   public getAllNotification(team:number):Observable<Notification[]>{
     return this.http.get<Notification[]>(this.url + '/notification/team/'+ team);
   }
+
+  public deleteNotification(notifyId:number) {
+    return this.http.delete(this.url + 'notification/' + notifyId);
+  }
 }

@@ -5,6 +5,7 @@ import { Checklist } from 'src/app/models/checklist';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import {take} from 'rxjs/operators';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 @Component({
   selector: 'app-task',
@@ -22,7 +23,8 @@ export class TaskComponent implements OnInit {
   
   constructor(private taskService:TaskService,
               private formBuilder:FormBuilder,
-              private _ngZone: NgZone) { 
+              private alert:AlertService
+             ) { 
                 this.task = new Task();
   }
   
@@ -35,13 +37,7 @@ export class TaskComponent implements OnInit {
       taskTitle:['']
     });
   }
-  @ViewChild('autosize') autosize: CdkTextareaAutosize;
-
-  triggerResize() {
-    // Wait for changes to be applied, then trigger textarea resize.
-    this._ngZone.onStable.pipe(take(1))
-        .subscribe(() => this.autosize.resizeToFitContent(true));
-  }
+ 
 
   onSubmit() {
     // stop here if form is invalid
@@ -50,11 +46,9 @@ export class TaskComponent implements OnInit {
     }else{
       this.task.cid = this.check.checkId;
       this.task.status = 0;
-      
-      console.log(this.task.taskDescription)
      this.taskService.addTask(this.task).subscribe(res=>{
-       this.task = res;
        this.ngOnInit();
+       this.alert.success('Adding task successful!!');
      });
      
     }

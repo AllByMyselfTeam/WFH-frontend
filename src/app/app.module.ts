@@ -21,6 +21,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { NotificationComponent } from './components/notification/notification/notification.component';
 import { MeetingComponent } from './components/meeting/meeting/meeting.component';
+import { AlertComponent } from './components/alert/alert/alert.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { MeetingComponent } from './components/meeting/meeting/meeting.component
     LogoutComponent,
     NotificationComponent,
     MeetingComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
