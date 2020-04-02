@@ -6,6 +6,8 @@ import { Checklist } from 'src/app/models/checklist';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user-service/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Team } from 'src/app/models/team';
+import { TeamService } from 'src/app/services/team/team.service';
 
 
 @Component({
@@ -22,13 +24,19 @@ export class UserpageComponent implements OnInit {
   show:boolean;
   message:string = "";
   afterCheck:Checklist;
+
+  team:Team;
+  teamForm:FormGroup;
+
   constructor(private activeRoute:ActivatedRoute,
               private checkService:ChecklistService,
+              private teamService:TeamService,
               private userService:UserService,
               private formBuilder:FormBuilder,
               private router:Router) {
                 this.checklist = new Checklist();
                 this.user= new User();
+                this.team = new Team();
               }
 
   ngOnInit(): void {
@@ -37,6 +45,9 @@ export class UserpageComponent implements OnInit {
     this.checklistForm = this.formBuilder.group({
       checkTitle:[''],
       checkDescription:['']
+    });
+    this.teamForm = this.formBuilder.group({
+      teamName:[''],
     });
     this.userService.getUserById(this.userId).subscribe(userData =>{
       this.user = userData;
@@ -80,5 +91,17 @@ removeCheck(checkId:number){
     this.ngOnInit();
   })
 }
+  onSubmitTeam() {
+    // stop here if form is invalid
+    if (this.teamForm.invalid) {
+        return;
+    }else{
+      this.team.managerId=this.userId;
+      this.team.users = [this.user];
+      this.teamService.addTeam(this.team).subscribe(res=>{
+        this.ngOnInit();
+      });
+    }
+  }
   
 }

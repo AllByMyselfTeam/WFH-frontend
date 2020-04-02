@@ -1,7 +1,6 @@
-import { Team } from 'src/app/models/team';
 export class Notification{
-    team : Team;
+    notifyId:number;
+    team : number;
     notifyTitle:string; 
     notifyDescription:string;
-    notifyId:number;
 }

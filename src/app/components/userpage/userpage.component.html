@@ -4,6 +4,7 @@
     </div>
     
     <h1>Welcome {{user.fname}} {{user.lname}}</h1>
+
     <mat-accordion>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -32,6 +33,31 @@
             </mat-panel-description>
         </mat-expansion-panel>
     </mat-accordion>
+
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Create a Team. You will be its manager.
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <form [formGroup] = "teamForm" (ngSubmit) = "onSubmitTeam()">
+                    <div class="form-group">
+                        <mat-form-field>
+                            <mat-label>Team Name</mat-label>
+                            <input matInput  formControlName="teamName" [(ngModel)] = "team.teamName" >
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Create Team</button>
+                    </div>
+                </form>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
     <br>
     <br>
     <table>

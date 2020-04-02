@@ -1,7 +1,6 @@
-import { Team } from 'src/app/models/team';
 export class Meeting{
     meetId:number;
+    team : number;
     meetDescription:string;
-    team : Team;
     meetLink:string;
 }
