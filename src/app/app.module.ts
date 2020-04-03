@@ -22,6 +22,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { NotificationComponent } from './components/notification/notification/notification.component';
 import { MeetingComponent } from './components/meeting/meeting/meeting.component';
 import { AlertComponent } from './components/alert/alert/alert.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { AlertComponent } from './components/alert/alert/alert.component';
     NotificationComponent,
     MeetingComponent,
     AlertComponent,
+    TeamsComponent,
   ],
   imports: [
     BrowserModule,

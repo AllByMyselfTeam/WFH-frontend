@@ -119,5 +119,9 @@ removeCheck(checkId:number){
       });
     }
   }
+
+  refreshUser(deleteBool:boolean){
+    // this.getCommunityByTitle();
+  }
   
 }

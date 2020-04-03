@@ -1,0 +1,12 @@
+<mat-card>
+    <div class="text-center">
+        <mat-card-title>Team {{team.teamName}}</mat-card-title>
+        
+        <h2>Meeting</h2>
+        <app-meeting [team] = "team.teamId"></app-meeting>
+        <br>
+
+        <h2>Notification</h2>
+        <app-notification [team] = "team.teamId"></app-notification>
+    </div>
+</mat-card>

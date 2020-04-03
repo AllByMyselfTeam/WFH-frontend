@@ -1,0 +1,15 @@
+mat-card {
+    border: 1px solid black;
+    margin: 5px;
+}
+
+mat-card-title{
+    background: #12121212;
+    padding: 5px;
+    color:black;
+}
+
+mat-card-content{
+    padding: 10px;
+}
+  
