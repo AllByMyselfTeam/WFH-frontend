@@ -13,7 +13,11 @@ export class TeamService {
     this.url="http://localhost:9000/";
   }
 
-  public addTeam(team:Team):Observable<Team>{
-    return this.http.post<Team>(this.url+"addTeam", team);
+  public addTeam(team:Team, userid:number):Observable<Team>{
+    return this.http.put<Team>(this.url+"addTeam/"+userid, team);
+  }
+
+  public joinTeam(userid:number, teamid:number):Observable<Team>{
+    return this.http.get<Team>(this.url+"joinTeam/"+userid + "/" + teamid);
   }
 }

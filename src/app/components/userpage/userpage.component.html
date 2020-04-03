@@ -58,6 +58,30 @@
     </mat-accordion>
 
 
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Join a team.
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <form [formGroup] = "joinTeamForm" (ngSubmit) = "onSubmitJoinTeam()">
+                    <div class="form-group">
+                        <mat-form-field>
+                            <mat-label>Team Id</mat-label>
+                            <input matInput  formControlName="teamId" [(ngModel)] = "team.teamId" >
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Join Team</button>
+                    </div>
+                </form>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
     <br>
     <br>
     <table>

@@ -8,7 +8,6 @@ import { UserService } from 'src/app/services/user-service/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Team } from 'src/app/models/team';
 import { TeamService } from 'src/app/services/team/team.service';
-import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
@@ -23,24 +22,26 @@ export class UserpageComponent implements OnInit {
   checklistForm:FormGroup;
   checks:Checklist[];
   show:boolean;
+  message:string = "";
   afterCheck:Checklist;
 
   team:Team;
   teamForm:FormGroup;
+  joinTeamForm: FormGroup;
 
   constructor(private activeRoute:ActivatedRoute,
               private checkService:ChecklistService,
               private teamService:TeamService,
               private userService:UserService,
               private formBuilder:FormBuilder,
-              private router:Router,
-              private alert:AlertService) {
+              private router:Router) {
                 this.checklist = new Checklist();
                 this.user= new User();
                 this.team = new Team();
               }
 
   ngOnInit(): void {
+    
     this.userId = +this.activeRoute.snapshot.paramMap.get("id");
     this.checklistForm = this.formBuilder.group({
       checkTitle:[''],
@@ -49,6 +50,9 @@ export class UserpageComponent implements OnInit {
     this.teamForm = this.formBuilder.group({
       teamName:[''],
     });
+    this.joinTeamForm = this.formBuilder.group({
+      teamId:[''],
+    });
     this.userService.getUserById(this.userId).subscribe(userData =>{
       this.user = userData;
       if(this.user.teams.length != 0){
@@ -56,10 +60,13 @@ export class UserpageComponent implements OnInit {
       }else{
         this.show=false;
       }
+      
+      
     });
     this.checkService.getAllChecklist(this.userId).subscribe(data=>{
       this.checks = data;
     });
+    
   }
 
   onSubmit() {
@@ -69,32 +76,23 @@ export class UserpageComponent implements OnInit {
     }else{
       this.checklist.uid=this.userId;
       this.checkService.addChecklist(this.checklist).subscribe(res=>{
+        
         this.ngOnInit();
-        this.alert.success("Adding checklist successful")
+        this.message = "Complete add checklist";
         //this.router.navigate([`${"userpage"}/${this.userId}`]);
-     },
-     (error)=>{
-       this.alert.error(error.error.error);
      });
     }
 }
 editChecklist(check:Checklist){
   this.checkService.updateChecklist(check).subscribe(data=>{
     this.afterCheck = data;
-    this.alert.success(check.checkTitle +" had been updated");
-  },
-  (error)=>{
-    this.alert.error(error.error.error);
+    this.message = "Complete update "+ check.checkTitle;
   });
 }
 removeCheck(checkId:number){
   this.checkService.deleteChecklist(checkId).subscribe(data=>{
-    this.alert
+    this.message = "Complete remove checklist";
     this.ngOnInit();
-    this.alert.success("Checklist had been  removed");
-  },
-  (error)=>{
-    this.alert.error(error.error.error);
   })
 }
   onSubmitTeam() {
@@ -103,8 +101,20 @@ removeCheck(checkId:number){
         return;
     }else{
       this.team.managerId=this.userId;
-      this.team.users = [this.user];
-      this.teamService.addTeam(this.team).subscribe(res=>{
+      this.teamService.addTeam(this.team, this.user.userId).subscribe(res=>{
+        this.team = new Team();
+        this.ngOnInit();
+      });
+    }
+  }
+
+  onSubmitJoinTeam() {
+    // stop here if form is invalid
+    if (this.joinTeamForm.invalid) {
+        return;
+    }else{
+      this.teamService.joinTeam(this.user.userId, this.team.teamId).subscribe(res=>{
+        this.team = new Team();
         this.ngOnInit();
       });
     }
