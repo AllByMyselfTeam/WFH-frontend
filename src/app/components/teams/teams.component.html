@@ -1,6 +1,7 @@
 <mat-card>
     <div class="text-center">
         <mat-card-title>Team {{team.teamName}}</mat-card-title>
+        <mat-card-subtitle>Team ID: {{team.teamId}}</mat-card-subtitle>
         
         <h2>Meeting</h2>
         <app-meeting [team] = "team.teamId"></app-meeting>

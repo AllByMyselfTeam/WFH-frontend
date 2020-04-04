@@ -17,4 +17,8 @@ export class MeetingService {
     return this.http.get<Meeting[]>(this.url+'/meeting/team/'+team);
   }
 
+  public addMeeting(meet: Meeting):Observable<Meeting>{
+    return this.http.post<Meeting>(this.url+'/meeting/add/', meet);
+  }
+
 }
