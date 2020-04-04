@@ -20,6 +20,7 @@ export class TaskComponent implements OnInit {
   taskForm:FormGroup;
   task:Task;
   demoTask:Task;
+  isShown:boolean = false;
 
   constructor(private taskService:TaskService,
               private formBuilder:FormBuilder,
@@ -97,6 +98,10 @@ export class TaskComponent implements OnInit {
     (error)=>{
       this.alert.error(error.error.error);
     });
+  }
+
+  toggleShow(){
+    this.isShown = !this.isShown;
   }
 
 }

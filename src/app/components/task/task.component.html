@@ -9,11 +9,7 @@
             <mat-panel-description>
                 
               <div class="text-left normal">
-                  <textarea matInput 
-                            cdkTextareaAutosize
-                            #autosize="cdkTextareaAutosize"
-                            cdkAutosizeMinRows="1"
-                            cdkAutosizeMaxRows="5" 
+                  <textarea
                             [(ngModel)]= "task.taskDescription">
                   </textarea>
                   <br>
@@ -71,5 +67,40 @@
         </div>
       </form>
     </mat-expansion-panel>
+    <br>
+  
+    <div class="text-center normal">
+      <button (click)="toggleShow()" id="btnPad" class="btn" rounded="true">
+        <div *ngIf="isShown">
+          <span class="material-icons">
+            arrow_drop_up
+          </span>
+        </div>
+        <div *ngIf="!isShown">
+          <span class="material-icons">
+            arrow_drop_down
+          </span>
+        </div>
+      </button>
+
+    </div>
    
+    <br>
+    <div *ngIf="isShown">
+      <div *ngFor = "let task of tasks">
+        <mat-expansion-panel *ngIf="task.status == 1">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="bold">
+                {{task.taskTitle}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                
+              <div class="text-left normal">
+                  {{task.taskDescription}}
+              </div>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </div>
+    </div>
   </mat-accordion>
