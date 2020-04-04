@@ -72,14 +72,18 @@
     <div class="text-center normal">
       <button (click)="toggleShow()" id="btnPad" class="btn" rounded="true">
         <div *ngIf="isShown">
+          <p>Hide Completed Task</p>
           <span class="material-icons">
             arrow_drop_up
           </span>
+          
         </div>
         <div *ngIf="!isShown">
+          <p>View Completed Task</p>
           <span class="material-icons">
             arrow_drop_down
           </span>
+          
         </div>
       </button>
 

@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Team } from 'src/app/models/team';
 import { TeamService } from 'src/app/services/team/team.service';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
@@ -34,7 +35,8 @@ export class UserpageComponent implements OnInit {
               private teamService:TeamService,
               private userService:UserService,
               private formBuilder:FormBuilder,
-              private router:Router) {
+              private router:Router,
+              private alert:AlertService) {
                 this.checklist = new Checklist();
                 this.user= new User();
                 this.team = new Team();
@@ -60,8 +62,6 @@ export class UserpageComponent implements OnInit {
       }else{
         this.show=false;
       }
-      
-      
     });
     this.checkService.getAllChecklist(this.userId).subscribe(data=>{
       this.checks = data;
@@ -78,21 +78,31 @@ export class UserpageComponent implements OnInit {
       this.checkService.addChecklist(this.checklist).subscribe(res=>{
         
         this.ngOnInit();
-        this.message = "Complete add checklist";
+        this.alert.success("Checklist has been added");
+       
         //this.router.navigate([`${"userpage"}/${this.userId}`]);
+     },
+     (error)=>{
+       this.alert.error(error.error.error)
      });
     }
 }
 editChecklist(check:Checklist){
   this.checkService.updateChecklist(check).subscribe(data=>{
     this.afterCheck = data;
-    this.message = "Complete update "+ check.checkTitle;
+    this.alert.success("Complete update "+ check.checkTitle);
+  },
+  (error)=>{
+    this.alert.error(error.error.error)
   });
 }
 removeCheck(checkId:number){
   this.checkService.deleteChecklist(checkId).subscribe(data=>{
-    this.message = "Complete remove checklist";
     this.ngOnInit();
+    this.alert.success("Checklist has been removed");
+  },
+  (error)=>{
+    this.alert.error(error.error.error)
   })
 }
   onSubmitTeam() {
@@ -104,6 +114,10 @@ removeCheck(checkId:number){
       this.teamService.addTeam(this.team, this.user.userId).subscribe(res=>{
         this.team = new Team();
         this.ngOnInit();
+        this.alert.success(this.team.teamName + " has been created");
+      },
+      (error)=>{
+        this.alert.error(error.error.error)
       });
     }
   }
