@@ -12,6 +12,10 @@ mat-card-title{
 mat-card-content{
     padding: 10px;
 }
+th{
+    padding-left: 10px;
+    padding-right: 10px;
+}
   
 
 #left-column {

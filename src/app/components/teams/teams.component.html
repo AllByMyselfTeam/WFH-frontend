@@ -4,9 +4,19 @@
         <mat-card-subtitle>Team ID: {{team.teamId}}</mat-card-subtitle>
         <mat-divider></mat-divider>
         <br>
-        <app-meeting [team] = "team.teamId"></app-meeting>
+        <table>
+            <tr>
+                <th>
+                    <app-meeting [team] = "team.teamId"></app-meeting>
+                </th>
+                <th>
+                    <app-notification [team] = "team.teamId"></app-notification>
+                </th>
+            </tr>
+        </table>
+       
         <br>
-        <app-notification [team] = "team.teamId"></app-notification>
+        
         <br>
 
     </div>
