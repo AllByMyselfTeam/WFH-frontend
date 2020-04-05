@@ -47,6 +47,17 @@
                 <div >
                     <a>{{notification.notifyDescription}}</a>
                 </div>
+              
+                <div class="text-right">
+                    <br>
+                    <button  id="btnPad"  class="btn" rounded="true" mdbWavesEffect mdbBtn (click)="removeNotification(notification.notifyId)">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </button>
+
+                </div>
+                
             </mat-panel-description>
         </mat-expansion-panel>
     </div>

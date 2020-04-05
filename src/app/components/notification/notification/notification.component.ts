@@ -3,6 +3,7 @@ import { NotificationService } from 'src/app/services/notification/notification.
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Notification } from 'src/app/models/notification';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class NotificationComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private alert:AlertService
     ) { 
       this.notifyAdd = new Notification();
     }
@@ -47,6 +49,16 @@ export class NotificationComponent implements OnInit {
         this.ngOnInit();
       });
     }
+  }
+
+  removeNotification(notifyId:number){
+    this.notificationService.deleteNotification(notifyId).subscribe(data=>{
+      this.ngOnInit();
+      this.alert.success("Notification had been removed");
+    },
+    (error)=>{
+      this.alert.error(error.error.error);
+    });
   }
 
   toggleShow(){
