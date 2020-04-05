@@ -14,6 +14,7 @@ export class NotificationComponent implements OnInit {
   @Input() team:number;
   notifyAdd: Notification;
   notifications: Notification[];
+  showAdd: boolean = false;
 
   addNotifyForm:FormGroup;
 
@@ -47,5 +48,10 @@ export class NotificationComponent implements OnInit {
       });
     }
   }
+
+  toggleShow(){
+    this.showAdd = !this.showAdd;
+  }
+
 
 }

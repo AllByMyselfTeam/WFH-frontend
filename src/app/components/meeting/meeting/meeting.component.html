@@ -1,6 +1,22 @@
 <mat-accordion>
-    <form [formGroup] = "addMeetingForm" (ngSubmit) = "addMeeting()">
-        <h3>Add a Meeting</h3>
+    <div class="text-center normal">
+        <button (click)="toggleShow()" id="btnPad" class="btn" rounded="true">
+          <div *ngIf="showAdd">
+            <h3>Add a Meeting</h3>
+            <span class="material-icons">
+              arrow_drop_up
+            </span>
+            
+          </div>
+          <div *ngIf="!showAdd">
+            <h3>Add a Meeting</h3>
+            <span class="material-icons">
+              arrow_drop_down
+            </span>     
+          </div>
+        </button>
+      </div>
+    <form [formGroup] = "addMeetingForm" (ngSubmit) = "addMeeting()" *ngIf="showAdd">
         <div class="form-group">
             <mat-form-field>
                 <mat-label>Meeting Description</mat-label>
