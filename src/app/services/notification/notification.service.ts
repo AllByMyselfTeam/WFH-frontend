@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Notification } from 'src/app/models/notification';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +21,9 @@ export class NotificationService {
 
   public deleteNotification(notifyId:number) {
     return this.http.delete(this.url + 'notification/' + notifyId);
+  }
+
+  public addNotify(notify: Notification):Observable<Notification>{
+    return this.http.post<Notification>(this.url+'/notification/add/', notify);
   }
 }

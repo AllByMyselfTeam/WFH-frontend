@@ -1,4 +1,26 @@
 <mat-accordion>
+    <form [formGroup] = "addMeetingForm" (ngSubmit) = "addMeeting()">
+        <h3>Add a Meeting</h3>
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Meeting Description</mat-label>
+                <input matInput  formControlName="meetDescription" [(ngModel)] = "meetingAdd.meetDescription" >
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Meeting Link</mat-label>
+                <input matInput  formControlName="meetLink" [(ngModel)] = "meetingAdd.meetLink" >
+            </mat-form-field>
+        </div>
+        <div>
+            <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Create Meeting</button>
+        </div>
+    </form>
+
+    <br>
+
+    <h2>Meetings</h2>
     <div *ngFor = "let meeting of meetings">
         <mat-expansion-panel>
             <mat-expansion-panel-header>
