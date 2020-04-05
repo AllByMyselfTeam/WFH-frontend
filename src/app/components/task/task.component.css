@@ -10,3 +10,16 @@
 .btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
 }
+
+textarea {
+  width: 200px;
+  height: 75px;
+}
+
+.mat-expansion-panel-header {
+  background: #fad9d726;
+}
+
+.mat-expansion-panel-body{
+  background: #fad9d726 !important;
+}

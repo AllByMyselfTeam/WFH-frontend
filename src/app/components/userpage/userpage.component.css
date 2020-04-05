@@ -2,7 +2,6 @@ section{
     margin-top: 4%;
     margin-left: 5%;
     margin-right: 2%;
-   
 }
 
 th,td{
@@ -16,6 +15,10 @@ th,td{
     padding-top: 10em;
 }
 
+mat-card {
+    border: 1px solid black;
+    margin: 5px;
+}
 
 .a3Verbage{
     height: 63px;
@@ -75,4 +78,10 @@ td{
   .btn:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
   }
+
+  textarea {
+    width: 250px;
+    height: 75px;
+  }
+ 
   
