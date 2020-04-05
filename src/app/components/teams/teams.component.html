@@ -2,14 +2,11 @@
     <div class="text-center">
         <mat-card-title>Team {{team.teamName}}</mat-card-title>
         <mat-card-subtitle>Team ID: {{team.teamId}}</mat-card-subtitle>
-        
-        <div id="left-column">
-            <app-meeting [team] = "team.teamId"></app-meeting>
-        </div>
-    
-        <div id="right-column">
-            <app-notification [team] = "team.teamId"></app-notification>
-        </div>
+        <mat-divider></mat-divider>
+        <br>
+        <h2>Meeting</h2>
+        <app-meeting [team] = "team.teamId"></app-meeting>
+        <br>
 
     </div>
 </mat-card>

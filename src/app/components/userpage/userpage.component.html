@@ -3,90 +3,97 @@
         <app-alert></app-alert>
     </div>
     
-    <h1>Welcome {{user.fname}} {{user.lname}}</h1>
+    <div class="text-left">
+        <h1>Welcome {{user.fname}} {{user.lname}}</h1>
+        <h3>{{user.title}}</h3>
+    </div>
+    
 
-    <mat-accordion>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                Add Checklist 
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-panel-description>
-                <form [formGroup] = "checklistForm" (ngSubmit) = "onSubmit()">
-                    <div class="form-group">
-                        <mat-form-field>
-                            <mat-label>Checklist Title</mat-label>
-                            <input matInput  formControlName="checkTitle" [(ngModel)] = "checklist.checkTitle" >
-                        </mat-form-field>
-                    </div>
-                    <div class="form-group">
-                        <mat-form-field>
-                            <mat-label>Checklist Description</mat-label>
-                            <textarea matInput formControlName="checkDescription" [(ngModel)] = "checklist.checkDescription"></textarea>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Add</button>
-                    </div>
-                </form>
-            </mat-panel-description>
-        </mat-expansion-panel>
-    </mat-accordion>
-
-    <mat-accordion>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                Create a Team. You will be its manager.
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-panel-description>
-                <form [formGroup] = "teamForm" (ngSubmit) = "onSubmitTeam()">
-                    <div class="form-group">
-                        <mat-form-field>
-                            <mat-label>Team Name</mat-label>
-                            <input matInput  formControlName="teamName" [(ngModel)] = "team.teamName" >
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Create Team</button>
-                    </div>
-                </form>
-            </mat-panel-description>
-        </mat-expansion-panel>
-    </mat-accordion>
-
-
-    <mat-accordion>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                Join a team.
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-panel-description>
-                <form [formGroup] = "joinTeamForm" (ngSubmit) = "onSubmitJoinTeam()">
-                    <div class="form-group">
-                        <mat-form-field>
-                            <mat-label>Team Id</mat-label>
-                            <input matInput  formControlName="teamId" [(ngModel)] = "team.teamId" >
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Join Team</button>
-                    </div>
-                </form>
-            </mat-panel-description>
-        </mat-expansion-panel>
-    </mat-accordion>
-
-
-    <br>
     <br>
     <table>
-        <div >
+        <div>
             <tr>
+                <th>
+                    <mat-card>
+
+                   
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                New Checklist 
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <mat-panel-description>
+                                <form [formGroup] = "checklistForm" (ngSubmit) = "onSubmit()">
+                                    <div class="form-group">
+                                        <mat-form-field>
+                                            <mat-label>Checklist Title</mat-label>
+                                            <input matInput  formControlName="checkTitle" [(ngModel)] = "checklist.checkTitle" >
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="form-group">
+                                        <mat-form-field>
+                                            <mat-label>Checklist Description</mat-label>
+                                            <textarea matInput formControlName="checkDescription" [(ngModel)] = "checklist.checkDescription"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Add</button>
+                                    </div>
+                                </form>
+                            </mat-panel-description>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                Create a Team. You will be its manager.
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <mat-panel-description>
+                                <form [formGroup] = "teamForm" (ngSubmit) = "onSubmitTeam()">
+                                    <div class="form-group">
+                                        <mat-form-field>
+                                            <mat-label>Team Name</mat-label>
+                                            <input matInput  formControlName="teamName" [(ngModel)] = "team.teamName" >
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Create Team</button>
+                                    </div>
+                                </form>
+                            </mat-panel-description>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                
+                
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                Join a team.
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <mat-panel-description>
+                                <form [formGroup] = "joinTeamForm" (ngSubmit) = "onSubmitJoinTeam()">
+                                    <div class="form-group">
+                                        <mat-form-field>
+                                            <mat-label>Team Id</mat-label>
+                                            <input matInput  formControlName="teamId" [(ngModel)] = "team.teamId" >
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <button id="btnPad" class="btn btn-outline-info mr-1" rounded="true" mdbWavesEffect mdbBtn>Join Team</button>
+                                    </div>
+                                </form>
+                            </mat-panel-description>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </mat-card>
+                </th>
                 <!-- <th  *ngIf="show">
                     <mat-card>
                         <div class="text-center" *ngFor="let team of user.teams">
@@ -102,13 +109,13 @@
                 </th> -->
                 <th *ngFor = "let check of checks">
                     <mat-card>
-
+                        
                         <div class="text-center" >
                             <h2>{{check.checkTitle}}</h2>
                         </div>
-                        
+                        <mat-divider></mat-divider>
                         <td class="font">
-                            <textarea matInput  [(ngModel)] = "check.checkDescription"></textarea>
+                            <textarea [(ngModel)] = "check.checkDescription"></textarea>
                         </td>
                         
                         <div class="text-right">
@@ -136,14 +143,9 @@
 
 <br>
 <br>
-
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <app-teams *ngFor="let team of user.teams" [team] = "team"
+        <app-teams *ngFor="let team of user.teams" [team] = "team"
             (deleteEmitter)="refreshUser($event)"></app-teams>
-        </div>
-        <div class="col-2"></div>
     </div>
 </section>
 

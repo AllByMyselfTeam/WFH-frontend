@@ -23,7 +23,7 @@ import { NotificationComponent } from './components/notification/notification/no
 import { MeetingComponent } from './components/meeting/meeting/meeting.component';
 import { AlertComponent } from './components/alert/alert/alert.component';
 import { TeamsComponent } from './components/teams/teams.component';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,8 @@ import { TeamsComponent } from './components/teams/teams.component';
     MatButtonModule,
     BrowserAnimationsModule,
     DragDropModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDividerModule
   
 
   ],
