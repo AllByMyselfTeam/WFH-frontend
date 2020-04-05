@@ -1,3 +1,9 @@
+const baseUri = `http://localhost`;
+
+const port = '4200';
+
+
 export const environment = {
-  production: true
+  production:true,
+  rootUri: `${baseUri}:${port}/`
 };

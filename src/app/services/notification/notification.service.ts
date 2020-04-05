@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Notification } from 'src/app/models/notification';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class NotificationService {
   private url:string;
 
   constructor(private http:HttpClient) { 
-    this.url="http://localhost:9000/";
+    this.url= environment.rootUri;
   }
 
   public getAllNotification(team:number):Observable<Notification[]>{
